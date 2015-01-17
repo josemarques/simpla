@@ -14,8 +14,6 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php simpla_post_nav(); ?>
-
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || get_comments_number() ) :
@@ -23,10 +21,12 @@ get_header(); ?>
 				endif;
 			?>
 
+			<?php simpla_post_nav(); ?>
+
 		<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

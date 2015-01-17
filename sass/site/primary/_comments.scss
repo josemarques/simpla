@@ -1,6 +1,79 @@
+.comments-area{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $size__content-max-width;
+}
+
 .comment-content a {
 	word-wrap: break-word;
 }
 .bypostauthor {
 	display: block;
+}
+
+.comment-form-header,
+.comment-form-comment{
+
+	padding: 1rem;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.025);
+	border: 1px solid rgba(0,0,0,0.05);
+	border-radius: 2px;
+
+	p{
+		margin: 0;
+	}
+
+	input, input:focus, textarea, textarea:focus{
+		padding: 0;
+		width: 100%;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+	}
+
+	::-webkit-input-placeholder{
+		color: rgba(0,0,0,0.5)
+	}
+	:-moz-placeholder{
+		color: rgba(0,0,0,0.5)
+	}
+    ::-moz-placeholder{
+		color: rgba(0,0,0,0.5)
+	}
+    :-ms-input-placeholder{
+		color: rgba(0,0,0,0.5)
+	}
+}
+
+.comment-form-header{
+	label, .required{
+		display: none;
+	}
+}
+
+.comment-form-comment{
+	margin: 1rem 0;
+	padding: 1rem;
+
+	label{
+		color: rgba(0,0,0,0.5)
+	}
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url{
+	@include grid-column($columns: 4, $collapse: true);
+}
+
+.form-submit{
+
+	input{
+		padding: 1rem;
+		background: rgba(0,0,0,0.05);
+		border: 1px solid;
+		border-color: rgba(0,0,0,0.075);
+		border-radius: 2px;
+	}
 }

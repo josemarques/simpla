@@ -1,0 +1,25 @@
+.site-header{
+	position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	margin: 0 1rem 1rem;
+	border-bottom: 2px solid #000;
+}
+
+.has-featured-image .site-header{
+	border-bottom-color: #fff;
+}
+
+.site-branding{
+	@include grid-column(3);
+}
+
+.logged-in .site-header{
+	top: 32px;
+}	
+
+.site-description{
+	display: none;
+}
+

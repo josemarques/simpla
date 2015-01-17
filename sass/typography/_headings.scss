@@ -1,3 +1,78 @@
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	font-family: $font__titles;
+}
+
+.site-header{
+	h1, ul{
+		text-transform: uppercase;
+		font-size: 1.5rem;
+		letter-spacing: -0.03rem;	
+		line-height: 3;
+	}
+	ul{
+		font-family: $font__titles;
+	}
+	a{
+		text-decoration: none;
+		color: rgba(0,0,0,1);
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #000;
+		}
+	}
+}
+
+.has-featured-image .site-header{
+	a{
+		text-decoration: none;
+		color: rgba(255,255,255,1);
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #fff;
+		}
+	}
+}
+
+.main-navigation {
+	text-align: right;
+}
+
+.entry-header{
+	h1{
+		@include font-size(5);	
+		font-weight: 700;
+		letter-spacing: -0.3rem;
+		line-height: 1;
+		text-align: center;
+	}
+}
+
+.entry-content{
+	h1{
+		@include font-size(5);
+	}
+	h2{
+		@include font-size(4);
+	}
+	h3{
+	@include font-size(3.5);	
+	}
+	h4{
+		@include font-size(3.25);
+	}
+	h5{
+		@include font-size(3);
+	}
+	h6{
+		@include font-size(2.75);
+	}
+
+	h1,h2,h3,h4,h5,h6{
+		letter-spacing: -0.3rem;
+	}
 }

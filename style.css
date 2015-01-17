@@ -44,6 +44,11 @@ and Blueprint http://www.blueprintcss.org/
 	12.1 Captions
 	12.2 Galleries
 --------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Neuton:300,400,700,800,400italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+/*--------------------------------------------------------------
+ZUrb Grid
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Reset
 --------------------------------------------------------------*/
@@ -136,17 +141,69 @@ button,
 input,
 select,
 textarea {
-  color: #404040;
-  font-family: sans-serif;
+  color: #111;
+  font-family: "Neuton", serif;
   font-size: 16px;
   font-size: 1.6rem;
-  line-height: 1.5; }
+  line-height: 1.45; }
 
 h1, h2, h3, h4, h5, h6 {
-  clear: both; }
+  clear: both;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif; }
+
+.site-header h1, .site-header ul {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: -0.03rem;
+  line-height: 3; }
+.site-header ul {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif; }
+.site-header a {
+  text-decoration: none;
+  color: black; }
+  .site-header a:hover, .site-header a:focus, .site-header a:active {
+    color: #000; }
+
+.has-featured-image .site-header a {
+  text-decoration: none;
+  color: white; }
+  .has-featured-image .site-header a:hover, .has-featured-image .site-header a:focus, .has-featured-image .site-header a:active {
+    color: #fff; }
+
+.main-navigation {
+  text-align: right; }
+
+.entry-header h1 {
+  font-size: 50px;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: -0.3rem;
+  line-height: 1;
+  text-align: center; }
+
+.entry-content h1 {
+  font-size: 50px;
+  font-size: 5rem; }
+.entry-content h2 {
+  font-size: 40px;
+  font-size: 4rem; }
+.entry-content h3 {
+  font-size: 35px;
+  font-size: 3.5rem; }
+.entry-content h4 {
+  font-size: 32.5px;
+  font-size: 3.25rem; }
+.entry-content h5 {
+  font-size: 30px;
+  font-size: 3rem; }
+.entry-content h6 {
+  font-size: 27.5px;
+  font-size: 2.75rem; }
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
+  letter-spacing: -0.3rem; }
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 3rem; }
 
 b, strong {
   font-weight: bold; }
@@ -155,10 +212,10 @@ dfn, cite, em, i {
   font-style: italic; }
 
 blockquote {
-  margin: 0 1.5em; }
+  margin: 0 1.5rem; }
 
 address {
-  margin: 0 0 1.5em; }
+  margin: 0 0 1.5rem; }
 
 pre {
   background: #eee;
@@ -166,10 +223,10 @@ pre {
   font-size: 15px;
   font-size: 1.5rem;
   line-height: 1.6;
-  margin-bottom: 1.6em;
+  margin-bottom: 1.6rem;
   max-width: 100%;
   overflow: auto;
-  padding: 1.6em; }
+  padding: 1.6rem; }
 
 code, kbd, tt, var {
   font-size: 15px;
@@ -203,6 +260,49 @@ small {
 
 big {
   font-size: 125%; }
+
+.entry-content p, .entry-content ul, .entry-content ol {
+  font-size: 23px;
+  font-size: 2.3rem;
+  line-height: 1.45;
+  font-weight: 300;
+  letter-spacing: -0.025rem; }
+
+.entry-author p {
+  line-height: 1.45; }
+
+.entry-author-name {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-size: 1.7rem;
+  letter-spacing: -0.1rem; }
+
+.entry-author-bio {
+  font-size: 17px;
+  font-size: 1.7rem; }
+
+.entry-meta {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-size: 1.1rem;
+  text-transform: uppercase; }
+  .entry-meta a {
+    text-transform: none; }
+
+.comment-form-header input {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem; }
+
+.comment-form-comment label {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem; }
+
+.form-submit input {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-size: 2rem; }
 
 /*--------------------------------------------------------------
 3.0 Elements
@@ -269,9 +369,7 @@ input[type="reset"],
 input[type="submit"] {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
   background: #e6e6e6;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   /* Improves usability and consistency of cursor style between image-type 'input' and others */
@@ -280,15 +378,13 @@ input[type="submit"] {
   font-size: 12px;
   font-size: 1.2rem;
   line-height: 1;
-  padding: .6em 1em .4em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+  padding: .6em 1em .4em; }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  border-color: #ccc #bbb #aaa;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02); }
+  border-color: #ccc #bbb #aaa; }
 
 button:focus,
 input[type="button"]:focus,
@@ -298,8 +394,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  border-color: #aaa #bbb #bbb;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
+  border-color: #aaa #bbb #bbb; }
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -361,20 +456,18 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
-  a:visited {
-    color: purple; }
+  color: #111; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #000; }
 
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 75%;
+  float: left; }
   .main-navigation ul {
     list-style: none;
     margin: 0;
@@ -391,13 +484,11 @@ a {
         top: 0; }
       .main-navigation ul ul li:hover > ul {
         left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
     .main-navigation ul li:hover > ul {
       left: auto; }
   .main-navigation li {
-    float: left;
-    position: relative; }
+    margin-left: 0.5rem;
+    display: inline-block; }
   .main-navigation a {
     display: block;
     text-decoration: none; }
@@ -522,7 +613,33 @@ a {
 10.0 Content
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-10.1 Posts and pages
+10.1 Site Header
+--------------------------------------------------------------*/
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 1rem 1rem;
+  border-bottom: 2px solid #000; }
+
+.has-featured-image .site-header {
+  border-bottom-color: #fff; }
+
+.site-branding {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 25%;
+  float: left; }
+
+.logged-in .site-header {
+  top: 32px; }
+
+.site-description {
+  display: none; }
+
+/*--------------------------------------------------------------
+10.3 Posts and pages
 --------------------------------------------------------------*/
 .sticky {
   display: block; }
@@ -547,22 +664,165 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
+.single .entry-header h1 {
+  padding: 12rem 0 6rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70rem; }
+
+.entry-header-img {
+  height: 66vw;
+  background-size: cover;
+  background-position: center; }
+  @media (max-width: 40rem) {
+    .entry-header-img {
+      min-height: 30vh; } }
+
+.entry-content p, .entry-content ul, .entry-content ol {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(0, 0, 0, 0.78); }
+@media (min-width: 62.5rem) {
+  .entry-content img.widewidth, .entry-content .tiled-gallery {
+    min-width: 110rem;
+    margin-left: -20rem; } }
+@media (min-width: 62.5rem) {
+  .entry-content .halfwidth {
+    width: 54.5rem;
+    margin-right: -20rem; }
+    .entry-content .halfwidth:nth-child(odd) {
+      margin-right: 0.5rem;
+      margin-left: -20rem; } }
+@media (min-width: 62.5rem) {
+  .entry-content .alignleft {
+    margin-left: -5rem; } }
+@media (min-width: 62.5rem) {
+  .entry-content .alignright {
+    margin-right: -5rem; } }
+
+.entry-footer {
+  overflow: auto;
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef; }
+
+.entry-meta {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 33.3333333333%;
+  float: left;
+  min-height: 85px;
+  padding: 0 0 0 1rem;
+  border-left: 1px solid #efefef;
+  color: #999; }
+  .entry-meta .posted-on, .entry-meta .posted-on a, .entry-meta .cat-links, .entry-meta .tag-links {
+    display: block; }
+  .entry-meta .cat-links span, .entry-meta .tags-links span {
+    display: block; }
+  .entry-meta a {
+    color: green; }
+
+.entry-author {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 66.6666666667%;
+  float: left; }
+  .entry-author img {
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin: 0 2rem 1rem 0;
+    border-radius: 50px; }
+  .entry-author p {
+    margin-bottom: 0; }
+
+.entry-author-bio {
+  color: #999; }
+
 /*--------------------------------------------------------------
-10.2 Asides
+10.4 Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
   display: none; }
 
 /*--------------------------------------------------------------
-10.3 Comments
+10.5 Comments
 --------------------------------------------------------------*/
+.comments-area {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70rem; }
+
 .comment-content a {
   word-wrap: break-word; }
 
 .bypostauthor {
   display: block; }
 
+.comment-form-header,
+.comment-form-comment {
+  padding: 1rem;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.025);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 2px; }
+  .comment-form-header p,
+  .comment-form-comment p {
+    margin: 0; }
+  .comment-form-header input, .comment-form-header input:focus, .comment-form-header textarea, .comment-form-header textarea:focus,
+  .comment-form-comment input,
+  .comment-form-comment input:focus,
+  .comment-form-comment textarea,
+  .comment-form-comment textarea:focus {
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: 0; }
+  .comment-form-header ::-webkit-input-placeholder,
+  .comment-form-comment ::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.5); }
+  .comment-form-header :-moz-placeholder,
+  .comment-form-comment :-moz-placeholder {
+    color: rgba(0, 0, 0, 0.5); }
+  .comment-form-header ::-moz-placeholder,
+  .comment-form-comment ::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.5); }
+  .comment-form-header :-ms-input-placeholder,
+  .comment-form-comment :-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.5); }
+
+.comment-form-header label, .comment-form-header .required {
+  display: none; }
+
+.comment-form-comment {
+  margin: 1rem 0;
+  padding: 1rem; }
+  .comment-form-comment label {
+    color: rgba(0, 0, 0, 0.5); }
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+  padding-left: 0;
+  padding-right: 0;
+  width: 33.3333333333%;
+  float: left; }
+
+.form-submit input {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.075);
+  border-radius: 2px; }
+
+/*--------------------------------------------------------------
+10.6 Site Footer
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 11.0 Infinite scroll
 --------------------------------------------------------------*/

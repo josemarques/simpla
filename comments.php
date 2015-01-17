@@ -25,8 +25,8 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'simpla' ),
-					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
+				printf( _nx( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments', get_comments_number(), 'comments title', 'simpla' ),
+					number_format_i18n( get_comments_number() ));
 			?>
 		</h2>
 
@@ -64,6 +64,28 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'simpla' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php 
+		$aria_req = ( $req ? " aria-required='true'" : '' );
+		$fields =  array(
+
+		  'author' =>
+		    '<div class="comment-form-header"><p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+		    ( $req ? '<span class="required">*</span>' : '' ) .
+		    '<input id="authora" name="author" type="text" placeholder="' . __( 'Name', 'domainreference' ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
+		    '" size="30"' . $aria_req . ' /></p>',
+
+		  'email' =>
+		    '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+		    ( $req ? '<span class="required">*</span>' : '' ) .
+		    '<input id="email" name="email" type="email"  placeholder="' . __( 'Email', 'domainreference' ) . '"  value="' . esc_attr(  $commenter['comment_author_email'] ) .
+		    '" size="30"' . $aria_req . ' /></p>',
+
+		  'url' =>
+		    '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
+		    '<input id="url" name="url" type="url"  placeholder="' . __( 'Website', 'domainreference' ) . '"  value="' . esc_attr( $commenter['comment_author_url'] ) .
+		    '" size="30" /></p></div>',
+		);
+		comment_form( array('fields' =>  $fields, 'comment_notes_after' => '' ) );
+	 ?>
 
 </div><!-- #comments -->
