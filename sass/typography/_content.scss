@@ -69,7 +69,11 @@ big {
 	font-size: 125%;
 }
 
-.entry-content{ 
+.entry-excerpt{
+	text-align: center;
+}
+
+.entry-excerpt, .entry-content{ 
 	p,ul,ol{
 		@include font-size(2.3);
 		line-height: $font__line-height-body;
@@ -85,7 +89,13 @@ big {
 }
 
 .entry-footer{
+	text-align: center;
+}
 
+.single{
+	.entry-footer{
+		text-align: left;
+	}
 }
 
 .entry-author-name{

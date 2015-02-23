@@ -27,31 +27,126 @@
 	margin: 0 0 1.5em;
 }
 
-.single{
-	.entry-header{
-		h1{
-			padding: 12rem 0 6rem;
-			margin-left: auto;
-			margin-right: auto;
-			max-width: $size__content-max-width;
+.excerpt{
+	position: relative;
+	max-width: $size__content-max-width;
+	height: 20rem;
+	margin: 1rem auto;
+	padding: 2rem;
+	overflow: hidden;
+	transition: all ease-in .2s;
+
+	&:first-child{
+		margin-top: $size__content-padding-top;
+	}
+
+	.excerpt-img, .excerpt-img:after{
+		position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+	}
+
+	.excerpt-overlay{
+		@include vertical-align;
+		position: absolute;
+			left: 0;
+			right: 0;
+		padding: 6rem 0;
+		color: $color__titles;
+		transition: all ease-in-out .2s;
+	}
+
+	.excerpt-img{
+		background-size: cover;
+		background-position: center;
+		-webkit-transition: -webkit-transform ease-in-out 10s;
+		transition: transform ease-in-out 10s;
+		
+		&:after{
+			content:"";
+			background-color: rgba(65,61,61,0.6);
+			transition: background-color ease-in-out .2s;
 		}
 	}
-}
 
-.entry-header-img{
-	height: 66vw;
-	background-size: cover;
-	background-position: center;
+	&:not(.has-post-thumbnail){
+		border-bottom: 1px solid $color__element-divider;
+	}
 
-	@media #{$device__small}{
-		min-height: 30vh;
+	&.has-post-thumbnail {
+		
+		.excerpt-overlay{
+			color: $color__titles-overlayed;
+		}
+
+		&:hover,&:focus{
+			text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+
+			.excerpt-overlay{
+				color: $color__titles-overlayed;
+			}
+			.excerpt-img{
+				-ms-transform: scale(1.5);
+				-webkit-transform: scale(1.5);
+				transform: scale(1.5);
+			}
+			.excerpt-img:after{
+				background-color: rgba(65,61,61,0);
+			}
+		}
+	}
+
+	&:hover,&:focus{
+
+		background-color: rgba(65,61,61,0.05);
+
+		.excerpt-overlay{
+			color: $color__titles-hover;
+			-ms-transform: scale(1.025) translateY(-48%);
+			-webkit-transform: scale(1.025) translateY(-48%);
+			transform: scale(1.025) translateY(-48%);
+
+		}	
 	}
 }
 
+.single{
+	.entry-header{
+		margin-top: $size__content-padding-top;
+		height: 30vw;
 
-.entry-content{
+		h1{
+			@include vertical-align;
+			max-width: $size__content-max-width;
+			margin: 0 auto;
+			color: $color__titles;
+		}
+	}
 
-	
+	.has-post-thumbnail .entry-header{
+		height: 60vw;
+		background-size: cover;
+		background-position: center;
+
+		h1{
+			color: $color__titles-overlayed;
+		}
+
+		@media #{$device__small}{
+			min-height: 30vh;
+		}
+	}
+
+}
+
+.entry-header{
+	margin: 0 5rem;
+}
+
+.entry-excerpt, .entry-content{
+	padding: 0 5rem;
 
 	p, ul, ol{	
 		max-width: $size__content-max-width;
@@ -59,68 +154,41 @@
 		margin-right: auto;
 		color: rgba(0,0,0,0.78);
 	}
-
-	img.widewidth, .tiled-gallery{
-		@media (min-width: 62.5rem){
-			min-width: $size__content-max-width + 40rem;
-			margin-left: -20rem;
-		}
-	}
-
-	.halfwidth{
-	
-		@media (min-width: 62.5rem){
-			width: $size__content-max-width/2 + 19.5rem;
-			margin-right: -20rem;
-			
-			&:nth-child(odd){
-				margin-right: 0.5rem;
-				margin-left: -20rem;
-			}
-		}
-	}
-
-	.alignleft{
-		@media (min-width: 62.5rem){
-			margin-left: -5rem;
-		}
-	}
-
-	.alignright{
-		@media (min-width: 62.5rem){
-			margin-right: -5rem;
-		}
-	}
 }
 
 .entry-footer{
-	overflow: auto;
 	max-width: $size__content-max-width;
-	margin: 2rem auto;
-	padding: 2rem 1rem;
-	border-top: 1px solid $color__element-divider;
-	border-bottom: 1px solid $color__element-divider;
-}
-
-.entry-meta{
-	@include grid-column($columns: 4);
-	min-height: 85px;
-	padding: 0 0 0 1rem;
-	border-left: 1px solid $color__element-divider;
-	color: $color__text-secondary;
-
-	.posted-on,.posted-on a,.cat-links,.tag-links{
-		display: block;
-	}
-
-	.cat-links,.tags-links{
-		span{
-			display: block;
-		}
-	}
+	margin: 2rem auto 0;
 
 	a{
 		color: $color__text-accent_1;
+	}
+}
+
+.single {
+	.entry-footer{
+		overflow: auto;
+		padding: 2rem 1rem;
+		border-top: 1px solid $color__element-divider;
+		border-bottom: 1px solid $color__element-divider;
+	}
+
+	.entry-meta{
+		@include grid-column($columns: 4);
+		min-height: 85px;
+		padding: 0 0 0 2rem;
+		border-left: 1px solid $color__element-divider;
+		color: $color__text-secondary;
+
+		.posted-on,.posted-on a,.cat-links,.tag-links{
+			display: block;
+		}
+
+		.cat-links,.tags-links{
+			span{
+				display: block;
+			}
+		}		
 	}
 }
 
